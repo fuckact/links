@@ -1,7 +1,56 @@
-<!doctypehtml><html lang=en><meta content="width=device-width,initial-scale=1"name=viewport><meta charset=UTF-8><title></title><meta content="Your Name's Links"property=og:title><meta content=yourdomain.com property=og:site_name><meta content="A list of Your Name's most important links."property=og:description><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><link href=css/style.css rel=stylesheet><meta content=var(--bgColor) name=theme-color><style>body{cursor:url(images/cur.png),auto}.cursor-trail{position:absolute;width:8px;height:8px;background-color:#0ef;border-radius:50%;pointer-events:none;animation:trailAnimation .5s ease-out forwards}@keyframes trailAnimation{from{transform:scale(1);opacity:1}to{transform:scale(0);opacity:0}}</style><div class=background-video-container><video autoplay id=background-video loop muted><source src=assets/vid.mp4 type=video/mp4></video></div><img alt=act class="animated fast rubberBand"id=userPhoto src=images/profile-picture.webp><h1 class="animated jello">act</h1><div class="animated delay-1s fadeInLeft"id=social-media-links><a class=social-icon href=https://steamcommunity.com/id/vvfk/ target=_blank><i class="fab fa-steam"></i> </a><a class=social-icon href=https://github.com/Act342 target=_blank><i class="fab fa-github"></i></a></div><a class=atrib>Built by Act 💸</a><audio autoplay id=background-audio loop muted><source src=assets/aud.mp3 type=audio/mp3>Your browser does not support the audio element.</audio><script>window.onload = function() {
+<!doctypehtml>
+<html lang=en>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<meta charset=UTF-8>
+
+<title></title>
+<meta content="fuckact.lol" property="og:title" />
+<meta content="f u c k a c t !" property="og:description" />
+<meta content="https://fuckact.lol" property="og:url" />
+<meta content="images/profile-picture.webp" property="og:image" />
+<meta content="#c90076" data-react-helmet="true" name="theme-color" />
+            
+
+<link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet>
+<link href=css/style.css rel=stylesheet>
+<meta content=var(--bgColor) name=theme-color>
+<style>
+    body {
+        cursor: url(images/cur.png), auto
+    }
+
+    .cursor-trail {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: #0ef;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: trailAnimation .5s ease-out forwards
+    }
+
+    @keyframes trailAnimation {
+        from {
+            transform: scale(1);
+            opacity: 1
+        }
+        to {
+            transform: scale(0);
+            opacity: 0
+        }
+    }
+</style>
+<div class=background-video-container><video autoplay id=background-video loop muted><source src=assets/vid.mp4 type=video/mp4></video></div><img alt=act class="animated fast rubberBand" id=userPhoto src=images/profile-picture.webp>
+<h1 class="animated jello">act</h1>
+<div class="animated delay-1s fadeInLeft" id=social-media-links><a class=social-icon href=https://steamcommunity.com/id/vvfk/ target=_blank><i class="fab fa-steam"></i> </a><a class=social-icon href=https://github.com/Act342 target=_blank><i class="fab fa-github"></i></a></div><a class=atrib>Built by Act 💸</a>
+<audio
+    autoplay id=background-audio loop muted>
+    <source src=assets/aud.mp3 type=audio/mp3>Your browser does not support the audio element.</audio>
+    <script>
+        window.onload = function() {
             var audio = document.getElementById('background-audio');
             var video = document.getElementById('background-video');
-            
+
             // Unmute both the audio and video after the page has loaded
             setTimeout(function() {
                 audio.muted = false;
@@ -14,7 +63,7 @@
         document.body.addEventListener('click', function() {
             var audio = document.getElementById('background-audio');
             if (audio.muted) {
-                audio.muted = false;  // Unmute on click
+                audio.muted = false; // Unmute on click
                 audio.play();
             }
         });
@@ -36,4 +85,6 @@
             setTimeout(function() {
                 trail.remove();
             }, 500); // Match this duration with the CSS animation duration
-        });</script><script src=script.js></script>
+        });
+    </script>
+    <script src=script.js></script>
