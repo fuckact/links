@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var text = "acts website"; // The text you want to animate
+    var text = "fuckact!"; // The text you want to animate
     var typingSpeed = 200; // Speed for typing effect (in milliseconds)
     var deletingSpeed = 100; // Speed for deleting effect (in milliseconds)
     var index = 0;
