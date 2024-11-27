@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta property="og:title" content="Your Name's Links" />
+    <meta property="og:site_name" content="yourdomain.com" />
+    <meta property="og:description" content="A list of Your Name's most important links." />
+    <!-- Add Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="var(--bgColor)">
+    <style>
+        /* Custom Cursor CSS */
+        body {
+            cursor: url('images/cur.png'), auto; /* Custom cursor image */
+        }
+
+        /* Style for the cursor trail */
+        .cursor-trail {
+    position: absolute;
+    width: 8px;   /* Smaller size for the trail */
+    height: 8px;  /* Smaller size for the trail */
+    background-color: rgb(0, 238, 255);  /* Trail color */
+    border-radius: 50%;
+    pointer-events: none;  /* Prevents interference with other elements */
+    animation: trailAnimation 0.5s ease-out forwards;
+}
+
+        /* Animation for the trail */
+        @keyframes trailAnimation {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="background-video-container">
+        <video autoplay loop muted id="background-video">
+            <source src="assets/vid.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Page Content Below -->
+    <img id="userPhoto" class="animated rubberBand fast" src="images/profile-picture.webp" alt="act">
+    <h1 class="animated jello">act</h1>
+
+    <!-- Social Media Links with Icons -->
+    <div id="social-media-links" class="animated fadeInLeft delay-1s">
+        <a href="https://steamcommunity.com/id/vvfk/" target="_blank" class="social-icon">
+            <i class="fab fa-steam"></i>
+        </a>
+        <a href="https://github.com/Act342" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <!-- Optional Attribution Repo Link -->
+    <a class="atrib">Built by Act 💸</a>
+
+    <!-- Background Audio -->
+    <audio id="background-audio" autoplay loop muted>
+        <source src="assets/aud.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('background-audio');
+            var video = document.getElementById('background-video');
+            
+            // Unmute both the audio and video after the page has loaded
+            setTimeout(function() {
+                audio.muted = false;
+                video.muted = true;
+                audio.volume = 0.1;
+            }, 3000); // 3-second delay to ensure proper unmuting
+        };
+
+        // Fallback for user interaction (optional)
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            if (audio.muted) {
+                audio.muted = false;  // Unmute on click
+                audio.play();
+            }
+        });
+
+        // JavaScript to add cursor trail
+        const body = document.body;
+
+        // Function to create the trail effect
+        body.addEventListener('mousemove', function(event) {
+            let trail = document.createElement('div');
+            trail.classList.add('cursor-trail');
+            body.appendChild(trail);
+
+            // Position the trail element at the cursor position
+            trail.style.left = `${event.pageX - 6}px`; // Center the trail on the cursor
+            trail.style.top = `${event.pageY - 6}px`; // Center the trail on the cursor
+
+            // Remove the trail element after the animation ends
+            setTimeout(function() {
+                trail.remove();
+            }, 500); // Match this duration with the CSS animation duration
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
