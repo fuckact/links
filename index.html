@@ -1,7 +1,7 @@
-<!doctypehtml>
-<html lang=en>
-<meta content="width=device-width,initial-scale=1" name=viewport>
-<meta charset=UTF-8>
+<!doctype html>
+<html lang="en">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta charset="UTF-8">
 
 <title></title>
 <meta content="fuckact.lol" property="og:title" />
@@ -9,93 +9,121 @@
 <meta content="https://fuckact.lol" property="og:url" />
 <meta content="images/embed.png" property="og:image" />
 <meta content="#43B581" data-react-helmet="true" name="theme-color" />
-            <head>
+
+<head>
     <link rel="shortcut icon" type="images/embed.png" href="favicon.ico" />
-  </head>
-
-            
-            
-
-<link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet>
-<link href=css/style.css rel=stylesheet>
-<meta content=var(--bgColor) name=theme-color>
-<style>
-    body {
-        cursor: url(images/cur.png), auto
-    }
-
-    .cursor-trail {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background-color: #0ef;
-        border-radius: 50%;
-        pointer-events: none;
-        animation: trailAnimation .5s ease-out forwards
-    }
-
-    @keyframes trailAnimation {
-        from {
-            transform: scale(1);
-            opacity: 1
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <meta content="var(--bgColor)" name="theme-color">
+    <style>
+        body {
+            cursor: url(images/cur.png), auto
         }
-        to {
-            transform: scale(0);
-            opacity: 0
+
+        .cursor-trail {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #0ef;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: trailAnimation .5s ease-out forwards
         }
-    }
-</style>
-<div class=background-video-container><video autoplay id=background-video loop muted><source src=assets/vid.mp4 type=video/mp4></video></div><img alt=act class="animated fast rubberBand" id=userPhoto src=images/profile-picture.webp>
-<h1 class="animated jello">act</h1>
-<div class="animated delay-1s fadeInLeft" id=social-media-links><a class=social-icon href=https://steamcommunity.com/id/vvfk/ target=_blank><i class="fab fa-steam"></i> </a><a class=social-icon href=https://github.com/fuckact target=_blank><i class="fab fa-github"></i></a></a>
-    <a class="social-icon" href="https://www.roblox.com/users/5439464149/profile" target="_blank" title="Visit my Roblox Profile">
-        <img src="images/roblox-icon.png" alt="Roblox" style="width: 24px; height: 24px;">
-    </a>
-<a class="social-icon" href="https://discord.gg/gKYnRAPMyV" target="_blank" title="Discord Server">
-        <img src="images/discord-icon.png" alt="Discord" style="width: 24px; height: 24px;">
-    </a></div><a class=atrib>Built by Act 💸</a>
-<audio
-    autoplay id=background-audio loop muted>
-    <source src=assets/aud.mp3 type=audio/mp3>Your browser does not support the audio element.</audio>
-    <script>
-        window.onload = function() {
-            var audio = document.getElementById('background-audio');
-            var video = document.getElementById('background-video');
 
-            // Unmute both the audio and video after the page has loaded
-            setTimeout(function() {
-                audio.muted = false;
-                video.muted = true;
-                audio.volume = 0.1;
-            }, 3000); // 3-second delay to ensure proper unmuting
-        };
-
-        // Fallback for user interaction (optional)
-        document.body.addEventListener('click', function() {
-            var audio = document.getElementById('background-audio');
-            if (audio.muted) {
-                audio.muted = false; // Unmute on click
-                audio.play();
+        @keyframes trailAnimation {
+            from {
+                transform: scale(1);
+                opacity: 1
             }
+
+            to {
+                transform: scale(0);
+                opacity: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-video-container">
+        <video autoplay id="background-video" loop muted>
+            <source src="assets/vid.mp4" type="video/mp4">
+        </video>
+    </div>
+    <img alt="act" class="animated fast rubberBand" id="userPhoto" src="images/profile-picture.webp">
+    <h1 class="animated jello">act</h1>
+    <div class="animated delay-1s fadeInLeft" id="social-media-links">
+        <a class="social-icon" href="https://steamcommunity.com/id/vvfk/" target="_blank"><i class="fab fa-steam"></i></a>
+        <a class="social-icon" href="https://github.com/fuckact" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="social-icon" href="https://www.roblox.com/users/5439464149/profile" target="_blank" title="Visit my Roblox Profile">
+            <img src="images/roblox-icon.png" alt="Roblox" style="width: 24px; height: 24px;">
+        </a>
+        <a class="social-icon" href="https://discord.gg/gKYnRAPMyV" target="_blank" title="Discord Server">
+            <img src="images/discord-icon.png" alt="Discord" style="width: 24px; height: 24px;">
+        </a>
+    </div>
+    <a class="atrib">Built by Act 💸</a>
+
+    <audio autoplay id="background-audio" muted>
+        <source id="audio-source" src="assets/aud1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // List of audio files
+        const songs = [
+            'assets/aud1.mp3',
+            'assets/aud2.mp3',
+            'assets/aud3.mp3'
+        ];
+
+        // Shuffle function
+        function shuffleSongs() {
+            return songs[Math.floor(Math.random() * songs.length)];
+        }
+
+        // Select the audio element and source element
+        const audioElement = document.getElementById('background-audio');
+        const audioSource = document.getElementById('audio-source');
+
+        // Change the song when the current one ends
+        audioElement.addEventListener('ended', () => {
+            const nextSong = shuffleSongs();
+            audioSource.src = nextSong;
+            audioElement.load(); // Load the new song
+            audioElement.play(); // Start playing
         });
 
-        // JavaScript to add cursor trail
+        // Initial song shuffle
+        audioSource.src = shuffleSongs();
+        audioElement.load();
+
+        // Unmute the audio after a delay
+        window.onload = function () {
+            var video = document.getElementById('background-video');
+
+            setTimeout(function () {
+                audioElement.muted = false;
+                video.muted = true;
+                audioElement.volume = 0.1;
+            }, 3000); // 3-second delay
+        };
+
+        // Cursor trail functionality
         const body = document.body;
 
-        // Function to create the trail effect
-        body.addEventListener('mousemove', function(event) {
+        body.addEventListener('mousemove', function (event) {
             let trail = document.createElement('div');
             trail.classList.add('cursor-trail');
             body.appendChild(trail);
 
-            // Position the trail element at the cursor position
             trail.style.left = `${event.pageX - 6}px`; // Center the trail on the cursor
             trail.style.top = `${event.pageY - 6}px`; // Center the trail on the cursor
 
-            // Remove the trail element after the animation ends
-            setTimeout(function() {
+            setTimeout(function () {
                 trail.remove();
             }, 500); // Match this duration with the CSS animation duration
         });
     </script>
-    <script src=script.js></script>
+</body>
+</html>
