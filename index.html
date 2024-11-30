@@ -1,4 +1,4 @@
-<!doctypehtml>
+<!doctypehtml> 
 <html lang=en>
 <meta content="width=device-width,initial-scale=1" name=viewport>
 <meta charset=UTF-8>
@@ -8,56 +8,100 @@
 <meta property="og:url" content="https://fuckact.lol">
 <meta property="og:title" content="fuckact.lol | home">
 <meta property="og:description" content="site home">
-<meta property="og:image" content="https://fuckact.lol/projects/images/embed.png">
-            <head>
-    <link rel="shortcut icon" type="https://fuckact.lol/projects/images/embed.png" href="favicon.ico" />
-  </head>
-
-            
-            
-
-<link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet>
-<link href=css/style.css rel=stylesheet>
-<meta content=var(--bgColor) name=theme-color>
-<style>
-    body {
-        cursor: url(images/cur.png), auto
-    }
-
-    .cursor-trail {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background-color: #0ef;
-        border-radius: 50%;
-        pointer-events: none;
-        animation: trailAnimation .5s ease-out forwards
-    }
-
-    @keyframes trailAnimation {
-        from {
-            transform: scale(1);
-            opacity: 1
+<meta property="og:image" content="images/embed.png">
+<head>
+    <link rel="shortcut icon" type="images/embed.png" href="favicon.ico" />
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet>
+    <link href=css/style.css rel=stylesheet>
+    <meta content=var(--bgColor) name=theme-color>
+    <style>
+        body {
+            cursor: url(images/cur.png), auto;
         }
-        to {
-            transform: scale(0);
-            opacity: 0
+
+        .cursor-trail {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #0ef;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: trailAnimation .5s ease-out forwards;
         }
-    }
-</style>
-<div class=background-video-container><video autoplay id=background-video loop muted><source src=assets/vid.mp4 type=video/mp4></video></div><img alt=act class="animated fast rubberBand" id=userPhoto src=images/profile-picture.webp>
-<h1 class="animated jello">act</h1>
-<div class="animated delay-1s fadeInLeft" id=social-media-links><a class=social-icon href=https://steamcommunity.com/id/vvfk/ target=_blank><i class="fab fa-steam"></i> </a><a class=social-icon href=https://github.com/fuckact target=_blank><i class="fab fa-github"></i></a></a>
-    <a class="social-icon" href="https://www.roblox.com/users/5439464149/profile" target="_blank" title="Visit my Roblox Profile">
-        <img src="images/roblox-icon.png" alt="Roblox" style="width: 24px; height: 24px;">
-    </a>
-<a class="social-icon" href="https://discord.gg/gKYnRAPMyV" target="_blank" title="Discord Server">
-        <img src="images/discord-icon.png" alt="Discord" style="width: 24px; height: 24px;">
-    </a></div><a class=atrib>Built by Act 💸</a>
-<audio
-    autoplay id=background-audio loop muted>
-    <source src=assets/aud.mp3 type=audio/mp3>Your browser does not support the audio element.</audio>
+
+        @keyframes trailAnimation {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Modern button styles */
+        .modern-button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .modern-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .modern-button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-video-container">
+        <video autoplay id="background-video" loop muted>
+            <source src="assets/vid.mp4" type="video/mp4">
+        </video>
+    </div>
+    <img alt="act" class="animated fast rubberBand" id="userPhoto" src="images/profile-picture.webp">
+    <h1 class="animated jello">act</h1>
+    <div class="animated delay-1s fadeInLeft" id="social-media-links">
+        <a class="social-icon" href="https://steamcommunity.com/id/vvfk/" target="_blank"><i class="fab fa-steam"></i></a>
+        <a class="social-icon" href="https://github.com/fuckact" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="social-icon" href="https://www.roblox.com/users/5439464149/profile" target="_blank" title="Visit my Roblox Profile">
+            <img src="images/roblox-icon.png" alt="Roblox" style="width: 24px; height: 24px;">
+        </a>
+        <a class="social-icon" href="https://discord.gg/gKYnRAPMyV" target="_blank" title="Discord Server">
+            <img src="images/discord-icon.png" alt="Discord" style="width: 24px; height: 24px;">
+        </a>
+    </div>
+
+    <!-- Centered container -->
+    <div class="centered-container">
+        <button class="modern-button" onclick="redirectToPage()">view my projects</button>
+        <a class="atrib">Built by Act 💸</a>
+    </div>
+
+    <audio autoplay id="background-audio" loop muted>
+        <source src="assets/aud.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
+        function redirectToPage() {
+            window.location.href = "https://fuckact.lol/projects"; // Replace with your page URL
+        }
+
         window.onload = function() {
             var audio = document.getElementById('background-audio');
             var video = document.getElementById('background-video');
@@ -98,4 +142,48 @@
             }, 500); // Match this duration with the CSS animation duration
         });
     </script>
-    <script src=script.js></script>
+    <script src="script.js"></script>
+
+    <style>
+        /* Centered container styling */
+        .centered-container {
+    position: absolute;
+    top: 35%; /* Adjusted to move the button closer */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+        .modern-button {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .modern-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .modern-button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .atrib {
+            color: white;
+            font-size: 14px;
+            display: block;
+        }
+    </style>
+</body>
+
