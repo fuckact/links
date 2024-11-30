@@ -3,8 +3,6 @@
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta charset="UTF-8">
 
-
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fuckact.lol">
 <meta property="og:title" content="projects | fuckact.lol">
@@ -118,5 +116,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Audio Player -->
+    <audio autoplay id="background-audio" loop muted>
+        <source src="assets/aud.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('background-audio');
+            var video = document.getElementById('background-video');
+
+            // Unmute both the audio and video after the page has loaded
+            setTimeout(function() {
+                audio.muted = false;
+                video.muted = true;
+                audio.volume = 0.1;
+            }, 3000); // 3-second delay to ensure proper unmuting
+        };
+
+        // Fallback for user interaction (optional)
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            if (audio.muted) {
+                audio.muted = false; // Unmute on click
+                audio.play();
+            }
+        });
+    </script>
+     <script src="script.js"></script>
 </body>
 </html>
