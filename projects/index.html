@@ -1,94 +1,122 @@
 <!doctypehtml>
-<html lang=en>
-<meta content="width=device-width,initial-scale=1" name=viewport>
-<meta charset=UTF-8>
+<html lang="en">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta charset="UTF-8">
 
-<title></title>
-<meta property="og:type" content="fuckact.lol">
-<meta property="og:url" content="https://fuckact.lol/projects">
-<meta property="og:title" content="fuckact.lol | projects">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fuckact.lol">
+<meta property="og:title" content="projects | fuckact.lol">
 <meta property="og:description" content="view my projects">
-<meta property="og:image" content="https://fuckact.lol/projects/images/embed.png">
+<meta property="og:image" content="images/embed.png">
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<meta content="var(--bgColor)" name="theme-color">
 
-            
-            
-
-<link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet>
-<link href=css/style.css rel=stylesheet>
-<meta content=var(--bgColor) name=theme-color>
 <style>
     body {
-        cursor: url(images/cur.png), auto
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: white;
+        cursor: url(images/cur.png), auto;
+        background: black;
+        overflow: hidden;
     }
 
-    .cursor-trail {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background-color: rgb(255, 0, 221);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: trailAnimation .5s ease-out forwards
+    .background-video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
     }
 
-    @keyframes trailAnimation {
-        from {
-            transform: scale(1);
-            opacity: 1
-        }
-        to {
-            transform: scale(0);
-            opacity: 0
-        }
+    .background-video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 3rem;
+    }
+
+    .project-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: calc(100vh - 100px);
+    }
+
+    .project-content {
+        display: flex;
+        max-width: 900px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 1px solid white;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .project-content img {
+        max-width: 250px; /* Adjust the width of the image */
+        height: auto;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .project-text {
+        padding: 20px;
+        flex: 1;
+    }
+
+    .project-buttons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .project-buttons a {
+        text-decoration: none;
+        background: white;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+
+    .project-buttons a:hover {
+        background: rgb(200, 200, 200);
     }
 </style>
-<div class=background-video-container><video autoplay id=background-video loop muted><source src=assets/vid3.mp4 type=video/mp4></video></div>
-<h1 class="animated jello">coming soon</h1>
 
-<audio
+<body>
+    <div class="background-video-container">
+        <video autoplay loop muted>
+            <source src="assets/vid3.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    autoplay id=background-audio loop muted>
-    <source src=assets/aud.mp3 type=audio/mp3>Your browser does not support the audio element.</audio>
-    <script>
-        window.onload = function() {
-            var audio = document.getElementById('background-audio');
-            var video = document.getElementById('background-video');
+    <h1>coming soon</h1>
 
-            // Unmute both the audio and video after the page has loaded
-            setTimeout(function() {
-                audio.muted = false;
-                video.muted = true;
-                audio.volume = 0.1;
-            }, 3000); // 3-second delay to ensure proper unmuting
-        };
-
-        // Fallback for user interaction (optional)
-        document.body.addEventListener('click', function() {
-            var audio = document.getElementById('background-audio');
-            if (audio.muted) {
-                audio.muted = false; // Unmute on click
-                audio.play();
-            }
-        });
-
-        // JavaScript to add cursor trail
-        const body = document.body;
-
-        // Function to create the trail effect
-        body.addEventListener('mousemove', function(event) {
-            let trail = document.createElement('div');
-            trail.classList.add('cursor-trail');
-            body.appendChild(trail);
-
-            // Position the trail element at the cursor position
-            trail.style.left = `${event.pageX - 6}px`; // Center the trail on the cursor
-            trail.style.top = `${event.pageY - 6}px`; // Center the trail on the cursor
-
-            // Remove the trail element after the animation ends
-            setTimeout(function() {
-                trail.remove();
-            }, 500); // Match this duration with the CSS animation duration
-        });
-    </script>
-    <script src=script.js></script>
+    <div class="project-container">
+        <div class="project-content">
+            <img src="images/rct.png" alt="Redstone County, Texas Logo">
+            <div class="project-text">
+                <p>Redstone County, Texas is a one-of-a-kind roleplay experience on Roblox, designed for players who want to immerse themselves in the life, challenges, and excitement of a Texas town where realism meets community. In Redstone County, every role you take on, from law enforcement to business owner or simply a local resident, adds depth to our shared story. We’re committed to fostering a welcoming, creative environment where players can enjoy character-driven stories, respond to dynamic situations, and develop deep connections in our carefully crafted game world. Whether you’re interested in small-town politics, building a business, or navigating complex relationships, Redstone County offers a place for everyone to live out their stories in a world rich with possibilities.</p>
+                <div class="project-buttons">
+                    <a href="https://www.roblox.com/games/86888136956916/Redstone-County-Texas" target="_blank">view the game</a>
+                    <a href="https://discord.gg/gKYnRAPMyV" target="_blank">join our discord</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
