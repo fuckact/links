@@ -1,0 +1,94 @@
+<!doctypehtml>
+<html lang=en>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<meta charset=UTF-8>
+
+<title></title>
+<meta content="projects" property="og:title" />
+<meta content="p r o j e c t s" property="og:description" />
+<meta content="https://fuckact.lol/projects" property="og:url" />
+<meta content="images/embed.png" property="og:image" />
+<meta content="#43B581" data-react-helmet="true" name="theme-color" />
+
+
+            
+            
+
+<link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet>
+<link href=css/style.css rel=stylesheet>
+<meta content=var(--bgColor) name=theme-color>
+<style>
+    body {
+        cursor: url(images/cur.png), auto
+    }
+
+    .cursor-trail {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: rgb(255, 0, 221);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: trailAnimation .5s ease-out forwards
+    }
+
+    @keyframes trailAnimation {
+        from {
+            transform: scale(1);
+            opacity: 1
+        }
+        to {
+            transform: scale(0);
+            opacity: 0
+        }
+    }
+</style>
+<div class=background-video-container><video autoplay id=background-video loop muted><source src=assets/vid3.mp4 type=video/mp4></video></div>
+<h1 class="animated jello">coming soon</h1>
+
+<audio
+
+    autoplay id=background-audio loop muted>
+    <source src=assets/aud.mp3 type=audio/mp3>Your browser does not support the audio element.</audio>
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('background-audio');
+            var video = document.getElementById('background-video');
+
+            // Unmute both the audio and video after the page has loaded
+            setTimeout(function() {
+                audio.muted = false;
+                video.muted = true;
+                audio.volume = 0.1;
+            }, 3000); // 3-second delay to ensure proper unmuting
+        };
+
+        // Fallback for user interaction (optional)
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-audio');
+            if (audio.muted) {
+                audio.muted = false; // Unmute on click
+                audio.play();
+            }
+        });
+
+        // JavaScript to add cursor trail
+        const body = document.body;
+
+        // Function to create the trail effect
+        body.addEventListener('mousemove', function(event) {
+            let trail = document.createElement('div');
+            trail.classList.add('cursor-trail');
+            body.appendChild(trail);
+
+            // Position the trail element at the cursor position
+            trail.style.left = `${event.pageX - 6}px`; // Center the trail on the cursor
+            trail.style.top = `${event.pageY - 6}px`; // Center the trail on the cursor
+
+            // Remove the trail element after the animation ends
+            setTimeout(function() {
+                trail.remove();
+            }, 500); // Match this duration with the CSS animation duration
+        });
+    </script>
+    <script src=script.js></script>
