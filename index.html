@@ -29,6 +29,19 @@
         z-index: -1;
     }
 
+    .discord-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .discord-icon:hover {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+
     h1 {
         font-size: 5rem;
         margin: 0;
@@ -48,7 +61,15 @@
 
 <canvas id="snow-canvas"></canvas>
 
-<!-- Your custom cursor + music scripts stay here -->
+<!-- Discord Icon -->
+<a href="https://discord.gg/intake" target="_blank">
+    <svg class="discord-icon" viewBox="0 0 245 240" fill="white">
+        <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
+        <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.7v135.2c0 11.5 9.2 20.7 20.5 20.7h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.4 19V40.7c0-11.5-9.2-20.7-20.4-20.7zm-38.6 135s-3.6-4.3-6.6-8c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.6 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.8 8.3-6.8 8.3-22.5-.7-31.1-15.5-31.1-15.5 0-32.8 14.7-59.5 14.7-59.5 14.7-11 28.7-10.7 28.7-10.7l1 1.2c-18.4 5.3-26.9 13.3-26.9 13.3s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-8-7.6-25.2-12.9l1.4-1.6s14-.3 28.7 10.7c0 0 14.7 26.7 14.7 59.5 0-.1-8.7 14.7-31.2 15.4z"/>
+    </svg>
+</a>
+
+<!-- Your custom cursor + music scripts go here -->
 
 <h1>coming soon</h1>
 <h2>fuckact.lol</h2>
@@ -62,7 +83,6 @@
 
     let flakes = [];
 
-    // Create snowflakes
     for (let i = 0; i < 200; i++) {
         flakes.push({
             x: Math.random() * canvas.width,
@@ -91,8 +111,8 @@
         angle += 0.001;
         for (let i = 0; i < flakes.length; i++) {
             let f = flakes[i];
-            f.y += Math.pow(f.d, 2) * 0.3; 
-            f.x += Math.sin(angle) * 0.5;
+            f.y += Math.pow(f.d, 2) * 0.3;  // slower snow
+            f.x += Math.sin(angle) * 0.2;   // gentle drift
 
             if (f.y > canvas.height) {
                 flakes[i] = {
@@ -112,7 +132,6 @@
 
     animateSnow();
 
-    // Adjust canvas size on window resize
     window.addEventListener("resize", () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
