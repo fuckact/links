@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",function(){var t="f u c k a c t !",e=0,n=!1,$=document.querySelector("title");!function o(){n?e>0?($.textContent=$.textContent.slice(0,-1),e--,setTimeout(o,100)):(n=!1,setTimeout(o,200)):e<t.length?($.textContent+=t.charAt(e),e++,setTimeout(o,200)):(n=!0,setTimeout(o,200))}()});
